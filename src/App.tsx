@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { Role } from "./api/CustomerClient";
+import RadioButtonsGroup from "./components/RadioButtonsGroup/RadioButtonsGroup";
 
 function App() {
+  const [selectedRole, setSelectedRole] = useState<Role>(Role.ADMIN);
+
+  const handleChange = (value: string) => {
+    setSelectedRole(value as Role);
+  };
+
+  const userTypes = Object.entries(Role).map(([key, value]) => ({
+    value,
+    label: value,
+  }));
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RadioButtonsGroup
+        label="User Types"
+        labelId="radioGroupLabel"
+        value={selectedRole}
+        defaultValue={selectedRole}
+        options={userTypes}
+        onChange={handleChange}
+      />
     </div>
   );
 }
