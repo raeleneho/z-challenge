@@ -1,15 +1,18 @@
 import { ListZellerCustomers } from "./graphql/queries";
 import axios, { AxiosResponse } from "axios";
 
-export const ENDPOINT =
-  "https://prrwjjssnvhpbcdwbcwx3nm3zm.appsync-api.ap-southeast-2.amazonaws.com/graphql";
-
-const API_KEY = "da2-6y6arb7mwvgrnmds2jignrgr2u";
+const ENDPOINT = process.env.REACT_APP_ENDPOINT || "";
+const API_KEY = process.env.REACT_APP_API_KEY || "";
 
 export enum Role {
-  ADMIN = "Admin",
-  MANAGER = "Manager",
+  ADMIN = "ADMIN",
+  MANAGER = "MANAGER",
 }
+
+export const RoleLabels: Record<Role, string> = {
+  [Role.ADMIN]: "Admin",
+  [Role.MANAGER]: "Manager",
+};
 
 export interface Customer {
   id: string;

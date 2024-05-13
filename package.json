@@ -6,8 +6,10 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.17",
+    "@tanstack/react-query": "^5.35.5",
+    "@tanstack/react-query-devtools": "^5.35.5",
     "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
+    "@testing-library/react": "^15.0.6",
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
@@ -43,5 +45,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@miragejs/graphql": "^0.1.13",
+    "@tanstack/eslint-plugin-query": "^5.32.1",
+    "miragejs": "^0.1.48"
   }
 }
