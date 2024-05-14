@@ -27,15 +27,17 @@ const RadioButton: React.FC<RadioButtonProps> = ({
         sx={{ ml: 0.75, color: "secondary.main" }}
         control={
           <Radio
+            name={label}
             icon={<UncheckedIcon data-testid="RadioButtonUncheckedIcon" />}
             checkedIcon={<CheckedIcon data-testid="RadioButtonCheckedIcon" />}
+            // @ts-expect-error
+            inputProps={{ "data-testid": `radio-button-${value}` }}
           />
         }
         checked={checked}
         label={label}
         value={value}
         {...props}
-        data-testid={`radio-button-${value}`}
       />
     </Box>
   );

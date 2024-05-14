@@ -7,8 +7,8 @@ interface RadioOption {
 }
 interface RadioButtonGroupProps {
   label?: string;
-  value: string;
-  defaultValue: string;
+  value?: string;
+  defaultValue?: string;
   labelId?: string;
   options: RadioOption[];
   onChange: (value: string) => void;

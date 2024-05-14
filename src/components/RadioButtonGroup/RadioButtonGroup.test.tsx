@@ -44,28 +44,23 @@ describe("RadioButtonsGroup component", () => {
   });
 
   describe("Handling state and events", () => {
-    // test("handles default value correctly", () => {
-    //   const defaultValue = "option1";
+    test("should render with default value selected", () => {
+      const defaultValue = "option1";
 
-    //   render(
-    //     <RadioButtonGroup
-    //       label="Test Label"
-    //       value=""
-    //       defaultValue={defaultValue}
-    //       labelId="test-label"
-    //       options={[
-    //         { value: "option1", label: "Option 1" },
-    //         { value: "option2", label: "Option 2" },
-    //       ]}
-    //       onChange={() => {}}
-    //     />
-    //   );
+      render(
+        <RadioButtonGroup
+          label="Test Label"
+          defaultValue={defaultValue}
+          labelId="test-label"
+          options={options}
+          onChange={() => {}}
+        />
+      );
 
-    //   // Attempt to access the radio button by data-testid
-    //   const checkedRadioButton = screen.getByTestId("radio-button-option1");
-    //   console.log(checkedRadioButton);
-    //   expect(checkedRadioButton).toHaveValue("checked");
-    // });
+      expect(screen.getByTestId("radio-button-option1")).toHaveAttribute(
+        "checked"
+      );
+    });
 
     test("handles onChange event", () => {
       const onChangeMock = jest.fn();

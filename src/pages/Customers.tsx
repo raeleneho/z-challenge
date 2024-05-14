@@ -15,7 +15,6 @@ export const Customers = () => {
   const {
     data: customers,
     isLoading,
-    error,
     isError,
   } = useQuery({
     queryKey: ["customers"],
@@ -41,7 +40,6 @@ export const Customers = () => {
           <RadioButtonGroup
             labelId="user-select"
             value={selectedRole}
-            defaultValue={selectedRole}
             options={userTypes}
             onChange={(newValue) => {
               setSelectedRole(newValue as Role);

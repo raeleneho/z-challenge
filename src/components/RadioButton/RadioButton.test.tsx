@@ -17,14 +17,14 @@ describe("RadioButton component", () => {
     expect(radioButton).toHaveAttribute("value", "value test");
   });
 
-  test("applies checked state correctly", () => {
+  test("applies checked state when selected", () => {
     render(<RadioButton label="Test Label" value="test" checked={true} />);
 
     const element = screen.getAllByTestId("RadioButtonCheckedIcon");
     expect(element.length).toEqual(1);
   });
 
-  test("applies unchecked state correctly", () => {
+  test("applies unchecked state when unselected", () => {
     render(<RadioButton label="Test Label" value="test" checked={false} />);
 
     const element = screen.getAllByTestId("RadioButtonUncheckedIcon");
