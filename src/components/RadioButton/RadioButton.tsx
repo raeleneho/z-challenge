@@ -5,7 +5,7 @@ import { ReactComponent as CheckedIcon } from "../../assets/CheckedRadio.svg";
 interface RadioButtonProps {
   label: string;
   value: string;
-  checked: boolean;
+  checked?: boolean;
 }
 
 const RadioButton: React.FC<RadioButtonProps> = ({

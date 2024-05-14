@@ -3,5 +3,10 @@ export const capitalizeFirstLetter = (word: string): string => {
 };
 
 export const extractFirstInitial = (fullName: string): string => {
-  return fullName.split(" ")[0][0];
+  const nameParts = fullName.split(" ");
+  if (nameParts.length === 0 || nameParts[0].length === 0) {
+    return "";
+  }
+  const firstInitial = nameParts[0][0].toUpperCase();
+  return firstInitial;
 };

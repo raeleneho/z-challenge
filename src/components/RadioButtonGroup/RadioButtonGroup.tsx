@@ -11,7 +11,7 @@ interface RadioButtonGroupProps {
   defaultValue?: string;
   labelId?: string;
   options: RadioOption[];
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
 }
 
 export const RadioButtonGroup = ({
@@ -30,17 +30,22 @@ export const RadioButtonGroup = ({
         name={label}
         defaultValue={defaultValue}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => onChange?.(e.target.value)}
       >
         <Stack spacing={1}>
-          {options.map((option) => (
-            <RadioButton
-              checked={option.value === value}
-              key={option.value}
-              value={option.value}
-              label={option.label}
-            />
-          ))}
+          {options.map((option) => {
+            const checked =
+              value !== undefined ? value === option.value : undefined;
+
+            return (
+              <RadioButton
+                checked={checked}
+                key={option.value}
+                value={option.value}
+                label={option.label}
+              />
+            );
+          })}
         </Stack>
       </RadioGroup>
     </FormControl>

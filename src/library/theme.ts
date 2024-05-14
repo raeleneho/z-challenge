@@ -19,8 +19,8 @@ export const theme = createTheme({
     },
 
     h6: {
-      fontSize: "1.1rem",
-      fontWeight: 340,
+      fontSize: "1.2rem",
+      fontWeight: 380,
       letterSpacing: "0.6px",
     },
   },
